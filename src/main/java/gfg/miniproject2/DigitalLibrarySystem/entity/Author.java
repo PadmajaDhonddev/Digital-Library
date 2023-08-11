@@ -1,10 +1,15 @@
 package gfg.miniproject2.DigitalLibrarySystem.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.util.UUID;
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity(name = "Table")
 @Table(name = "`Proj2Author`")
 public class Author {
@@ -21,7 +26,14 @@ public class Author {
     @Column(name = "`country`")
     private String authorCountry;
 
-    public Author(UUID authorId, String authorName, String authorEmail, int authorAge, String authorCountry) {
+    public Author(String authorName, String authorEmail, int authorAge, String authorCountry) {
+        this.authorName = authorName;
+        this.authorEmail = authorEmail;
+        this.authorAge = authorAge;
+        this.authorCountry = authorCountry;
+    }
+
+   /* public Author(UUID authorId, String authorName, String authorEmail, int authorAge, String authorCountry) {
         this.authorId = authorId;
         this.authorName = authorName;
         this.authorEmail = authorEmail;
@@ -89,5 +101,5 @@ public class Author {
                 ", authorAge=" + authorAge +
                 ", authorCountry='" + authorCountry + '\'' +
                 '}';
-    }
+    }*/
 }

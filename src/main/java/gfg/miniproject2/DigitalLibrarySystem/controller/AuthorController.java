@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/author")
@@ -28,5 +29,20 @@ public class AuthorController {
     @GetMapping("/getAllAuthors")
     public List<CreateAuthorResponseModel> getAllAuthors() {
         return authorService.getAllAuthors();
+    }
+
+    @GetMapping("/getAuthorById/{id}")
+    public CreateAuthorResponseModel getAuthorById(@PathVariable UUID id){
+        return authorService.getAuthorById(id);
+    }
+
+    @DeleteMapping("/deleteAuthorById/{id}")
+    public String deleteAuthorById(@PathVariable UUID id){
+        return authorService.deleteAuthorById(id);
+    }
+
+    @PutMapping("/updateAuthorById/{id}")
+    public void updateAuthorById(@PathVariable UUID id, @RequestBody CreateAuthorRequestModel createAuthorRequestModel){
+         authorService.updateAuthorById(id,createAuthorRequestModel);
     }
 }

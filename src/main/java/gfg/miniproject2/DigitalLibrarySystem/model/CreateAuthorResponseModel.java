@@ -1,12 +1,21 @@
 package gfg.miniproject2.DigitalLibrarySystem.model;
 
+import lombok.*;
+
+import java.util.UUID;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class CreateAuthorResponseModel {
-    private String authorId;
+    private UUID authorId;
     private String authorName;
     private String authorEmail;
     private int authorAge;
     private String authorCountry;
-
+/*
     public CreateAuthorResponseModel() {
         super();
     }
@@ -64,5 +73,5 @@ public class CreateAuthorResponseModel {
                 ", authorAge=" + authorAge +
                 ", authorCountry='" + authorCountry + '\'' +
                 '}';
-    }
+    }*/
 }
